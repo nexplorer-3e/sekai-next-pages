@@ -47,7 +47,9 @@ const defaultValues = {
     console.log('Update found! Pinging an update to Vercel')
 
     // Ping
-    await axios.post(DEPLOY_HOOKS)
+    if (DEPLOY_HOOKS !== undefined) {
+      await axios.post(DEPLOY_HOOKS)
+    }
     // await axios.post(CDN_HOOKS, {
     //   event_type: "deploy"
     // }, {
