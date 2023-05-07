@@ -22,7 +22,7 @@ export const VirtualLiveCard: FunctionComponent<Props> = memo(props => {
           src={getRemoteAssetURLSync(
             `virtual_live/select/banner/${virtualLive.assetbundleName}_rip/${virtualLive.assetbundleName}.png`,
             undefined,
-            'cn'
+            'minio'
           )}
           className="w-full h-auto"
           alt={virtualLive.name}
