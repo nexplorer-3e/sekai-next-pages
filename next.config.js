@@ -23,6 +23,7 @@ module.exports = withPlugins([[withBundleAnalyzer]], {
       'storage.sekai.best',
       'sekai-assets-1258184166.file.myqcloud.com',
     ],
+    unoptimized: true,
   },
   async rewrites() {
     return [
