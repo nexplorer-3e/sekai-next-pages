@@ -19,7 +19,10 @@ module.exports = withPlugins([[withBundleAnalyzer]], {
     excludeDefaultMomentLocales: true,
   },
   images: {
-    domains: ['minio.dnaroma.eu'],
+    domains: [
+      'storage.sekai.best',
+      'sekai-assets-1258184166.file.myqcloud.com',
+    ],
   },
   async rewrites() {
     return [

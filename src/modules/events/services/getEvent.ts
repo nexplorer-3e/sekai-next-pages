@@ -1,8 +1,26 @@
+import { getRemoteAssetURLSync } from '../../../core/services/apiInstance'
+
 export const getEventBackground = (eventAssetbundleName: string) =>
-  `https://minio.dnaroma.eu/sekai-assets/event/${eventAssetbundleName}/screen_rip/bg.webp`
+  getRemoteAssetURLSync(
+    `event/${eventAssetbundleName}/screen_rip/bg.webp`,
+    undefined,
+    'minio'
+  )
 export const getEventLogo = (eventAssetbundleName: string) =>
-  `https://minio.dnaroma.eu/sekai-assets/event/${eventAssetbundleName}/logo_rip/logo.webp`
+  getRemoteAssetURLSync(
+    `event/${eventAssetbundleName}/logo_rip/logo.webp`,
+    undefined,
+    'minio'
+  )
 export const getEventBanner = (eventAssetbundleName: string) =>
-  `https://minio.dnaroma.eu/sekai-assets/home/banner/${eventAssetbundleName}_rip/${eventAssetbundleName}.webp`
+  getRemoteAssetURLSync(
+    `home/banner/${eventAssetbundleName}_rip/${eventAssetbundleName}.webp`,
+    undefined,
+    'minio'
+  )
 export const getEventCharacter = (eventAssetbundleName: string) =>
-  `https://minio.dnaroma.eu/sekai-assets/event/${eventAssetbundleName}/screen_rip/character.webp`
+  getRemoteAssetURLSync(
+    `event/${eventAssetbundleName}/screen_rip/character.webp`,
+    undefined,
+    'minio'
+  )

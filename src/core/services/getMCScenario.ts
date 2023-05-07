@@ -4,11 +4,16 @@ import moize from 'moize'
 
 import { MasterOfCermonyData } from '../../@types/MasterOfCermonyData'
 import { MCSerialData } from '../../@types/MCSerialData'
+import { getRemoteAssetURL } from './apiInstance'
 
 export const getMCScenario = moize.promise(
   async (virtualLiveSetlistAssetBundleName: string) => {
     const res = await axios.get<MasterOfCermonyData>(
-      `https://minio.dnaroma.eu/sekai-assets/virtual_live/mc/scenario/${virtualLiveSetlistAssetBundleName}_rip/${virtualLiveSetlistAssetBundleName}.asset`,
+      await getRemoteAssetURL(
+        `virtual_live/mc/scenario/${virtualLiveSetlistAssetBundleName}_rip/${virtualLiveSetlistAssetBundleName}.asset`,
+        undefined,
+        'minio'
+      ),
       {
         headers: {
           'User-Agent':

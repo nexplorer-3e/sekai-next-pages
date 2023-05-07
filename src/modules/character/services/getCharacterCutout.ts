@@ -1,2 +1,8 @@
+import { getRemoteAssetURLSync } from '../../../core/services/apiInstance'
+
 export const getCharacterCutout = (characterId: string | number) =>
-  `https://minio.dnaroma.eu/sekai-assets/character/trim_rip/chr_trim_${characterId}.webp`
+  getRemoteAssetURLSync(
+    `character/trim_rip/chr_trim_${characterId}.webp`,
+    undefined,
+    'minio'
+  )

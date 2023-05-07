@@ -9,6 +9,7 @@ import { ScheduleBlock } from './scheduleBlock'
 
 import { VirtualLive } from '../../../@types/VirtualLive'
 import { TransformedSetlist } from '../../../@types/TransformedSetlist'
+import { getRemoteAssetURLSync } from '../../../core/services/apiInstance'
 
 interface Props {
   virtualLive: VirtualLive
@@ -61,7 +62,11 @@ export const VirtualLiveDetail: FunctionComponent<Props> = memo(props => {
             alt="live banner"
             width={790}
             height={243}
-            src={`https://minio.dnaroma.eu/sekai-assets/virtual_live/select/banner/${virtualLive.assetbundleName}_rip/${virtualLive.assetbundleName}.png`}
+            src={getRemoteAssetURLSync(
+              `virtual_live/select/banner/${virtualLive.assetbundleName}_rip/${virtualLive.assetbundleName}.png`,
+              undefined,
+              'minio'
+            )}
             className="w-full h-auto"
           />
         </div>

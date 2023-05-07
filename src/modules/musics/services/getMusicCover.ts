@@ -1,2 +1,8 @@
+import { getRemoteAssetURLSync } from '../../../core/services/apiInstance'
+
 export const getMusicCover = (musicAssetbundleName: string) =>
-  `https://minio.dnaroma.eu/sekai-assets/music/jacket/${musicAssetbundleName}_rip/${musicAssetbundleName}.webp`
+  getRemoteAssetURLSync(
+    `music/jacket/${musicAssetbundleName}_rip/${musicAssetbundleName}.webp`,
+    undefined,
+    'minio'
+  )

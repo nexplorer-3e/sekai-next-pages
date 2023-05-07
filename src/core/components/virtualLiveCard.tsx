@@ -1,9 +1,10 @@
-import { FunctionComponent, memo, useMemo } from 'react'
+import { FunctionComponent, memo } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { VirtualLive } from '../../@types/VirtualLive'
+import { getRemoteAssetURLSync } from '../services/apiInstance'
 
 interface Props {
   virtualLive: Pick<VirtualLive, 'id' | 'assetbundleName' | 'name'>
@@ -18,7 +19,11 @@ export const VirtualLiveCard: FunctionComponent<Props> = memo(props => {
         <Image
           width={790}
           height={243}
-          src={`https://minio.dnaroma.eu/sekai-assets/virtual_live/select/banner/${virtualLive.assetbundleName}_rip/${virtualLive.assetbundleName}.png`}
+          src={getRemoteAssetURLSync(
+            `virtual_live/select/banner/${virtualLive.assetbundleName}_rip/${virtualLive.assetbundleName}.png`,
+            undefined,
+            'cn'
+          )}
           className="w-full h-auto"
           alt={virtualLive.name}
         />

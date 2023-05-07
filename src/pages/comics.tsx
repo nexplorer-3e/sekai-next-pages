@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { HeadTitle } from '../core/components/headTitle'
 
 import { ComicTip } from '../@types/Tip'
+import { getRemoteAssetURLSync } from '../core/services/apiInstance'
 
 interface Props {
   comics: Pick<ComicTip, 'id' | 'title' | 'assetbundleName'>[]
@@ -34,7 +35,9 @@ const Page: NextPage<Props> = props => {
               </div>
               <Image
                 alt={comic.title}
-                src={`https://minio.dnaroma.eu/sekai-assets/comic/one_frame_rip/${comic.assetbundleName}.webp`}
+                src={getRemoteAssetURLSync(
+                  `comic/one_frame_rip/${comic.assetbundleName}.webp`
+                )}
                 width={644}
                 height={478}
               />
