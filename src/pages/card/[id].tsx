@@ -77,7 +77,7 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
   )
   const targetSkill = first(
     skills.filter(skill => skill.id === targetCard.skillId)
-  )
+  ) as Skill
 
   return {
     props: {
@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
         'specialTrainingPower3BonusFixed',
       ]),
       character: pick(targetCharacter, ['firstName', 'givenName', 'unit']),
-      episodes: targetCardEpisodes.map(o =>
+      episodes: targetCardEpisodes.map((o: any) =>
         pick(o, [
           'title',
           'power1BonusFixed',
