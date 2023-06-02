@@ -13,6 +13,7 @@ import { MusicDifficulty } from '../../@types/MusicDifficulty'
 import { MusicVocal } from '../../@types/MusicVocal'
 import { Unit } from '../../@types/Unit'
 import { UnitProfile } from '../../@types/UnitProfile'
+import { getRemoteAssetURLSync } from '../../core/services/apiInstance'
 
 interface Props {
   music: Pick<
@@ -53,11 +54,14 @@ const Page: NextPage<Props> = props => {
         <meta property="og:title" content={`${music.title} · セカイ Wiki`} />
         <meta
           property="og:url"
-          content={`https://sekai.rayriffy.com/music/${query.id}`}
+          content={getRemoteAssetURLSync(`/music/${query.id}`, undefined)}
         />
         <meta
           property="og:image"
-          content={`https://sekai.rayriffy.com/api/og/music/${query.id}`}
+          content={getRemoteAssetURLSync(
+            `/api/og/music/${query.id}`,
+            undefined
+          )}
         />
         <meta
           property="og:audio"
@@ -74,7 +78,7 @@ const Page: NextPage<Props> = props => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content={`https://sekai.rayriffy.com/music/${query.id}`}
+          content={getRemoteAssetURLSync(`/music/${query.id}`)}
         />
         <meta
           property="twitter:title"

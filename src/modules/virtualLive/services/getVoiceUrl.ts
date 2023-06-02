@@ -1,8 +1,8 @@
 import { getRemoteAssetURLSync } from '../../../core/services/apiInstance'
-
+// used in mustache expression, for convenience we use sync version
 export const getVoiceUrl = (mcId: string, voiceKey: string) =>
   getRemoteAssetURLSync(
-    `sekai-assets/virtual_live/mc/voice/${mcId}_rip/${voiceKey}.mp3`,
+    `virtual_live/mc/voice/${mcId}_rip/${voiceKey}.mp3`,
     undefined,
     'minio'
   )
