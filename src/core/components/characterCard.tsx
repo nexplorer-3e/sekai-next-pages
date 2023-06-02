@@ -98,7 +98,7 @@ export const CharacterCard: FunctionComponent<Props> = props => {
           src={`/static/frame/cardFrame_L_${
             cardRarity.birthday ? 'bd' : cardRarity.level
           }.png`}
-          className="rounded-lg"
+          className="rounded-lg relative"
           width={1024}
           height={576}
           sizes={cardSizes}
