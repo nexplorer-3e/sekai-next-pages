@@ -18,6 +18,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Trigger hook
-        uses: wei/curl@master
-        with:
-          args: -XPOST ${{secret.PAGES_DEPLOYHOOK}}
+        run: |
+          curl -XPOST ${{ secrets.PAGES_DEPLOYHOOK }}
